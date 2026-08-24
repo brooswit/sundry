@@ -10,6 +10,10 @@ CI refuses a merge that changes `src/`, `schema/` or `package.json` without a ne
 - **MINOR** — a new feature, or a change to an existing feature that breaks just that feature.
 - **PATCH** — a fix or correction that requires no consumer code changes, or very minor ones.
 
+## [0.2.0] - 2026-08-24
+### Changed
+- `watch` scheduling now adapts: each tick runs the interval timer and `fn` concurrently, and the next tick begins when BOTH finish — `max(interval, fn-duration)`. A `fn` faster than the interval keeps a steady cadence; a `fn` slower than the interval runs back-to-back with no gap and no dropped ticks (previously an overlapping tick was skipped). Timer injection option renamed `setInterval`/`clearInterval` → `setTimeout`/`clearTimeout`.
+
 ## [0.1.0] - 2026-08-24
 ### Added
 - `watch(fn, onChange, intervalMs, options?)` — polls `fn` on an interval and calls `onChange(next, prev)` when a stable hash of its return value changes; returns an idempotent `stop()`. The first call is a baseline (no callback), `fn` may be sync or async (a slow async `fn` never overlaps itself), a throw/reject skips the tick (optional `onError`), and object key order does not trigger a false change.
