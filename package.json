@@ -1,6 +1,6 @@
 {
   "name": "@brooswit/sundry",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A toolbox of small, well-tested TypeScript utilities",
   "license": "MIT",
   "type": "module",
