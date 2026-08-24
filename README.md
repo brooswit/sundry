@@ -20,9 +20,10 @@ stop();   // idempotent
 
 - **The first call is a baseline** — it captures the initial value and does *not* fire `onChange`.
 - **Change is detected by a stable, order-independent hash**, so `{a:1,b:2}` → `{b:2,a:1}` is *not* a change.
-- **`fn` may be sync or async.** A slow async `fn` never overlaps itself — a tick is skipped while the previous is still running.
+- **Adaptive cadence.** Each tick runs the interval timer and `fn` at once; the next tick begins when both finish — `max(interval, fn-duration)`. A fast `fn` keeps a steady interval; a slow `fn` runs back-to-back with no gap and no dropped ticks. A tick never overlaps the next.
+- **`fn` may be sync or async.**
 - **A throw/reject skips that tick** (no change, baseline unchanged). Pass `options.onError` to observe it.
-- **`options`**: `onError?`, `hash?` (override the hash), `setInterval?`/`clearInterval?` (inject timers, e.g. for tests).
+- **`options`**: `onError?`, `hash?` (override the hash), `setTimeout?`/`clearTimeout?` (inject timers, e.g. for tests).
 
 Also exported: `hashValue`, `stableStringify`, `fnv1a`.
 
