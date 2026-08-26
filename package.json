@@ -1,16 +1,16 @@
 {
   "name": "@brooswit/sundry",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A toolbox of small, well-tested TypeScript utilities",
   "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brooswit/sundry.git"
+    "url": "git+https://github.com/brooswit-factory/sundry.git"
   },
-  "homepage": "https://github.com/brooswit/sundry#readme",
+  "homepage": "https://github.com/brooswit-factory/sundry#readme",
   "bugs": {
-    "url": "https://github.com/brooswit/sundry/issues"
+    "url": "https://github.com/brooswit-factory/sundry/issues"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
