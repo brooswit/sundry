@@ -10,6 +10,10 @@ CI refuses a merge that changes `src/`, `schema/` or `package.json` without a ne
 - **MINOR** — a new feature, or a change to an existing feature that breaks just that feature.
 - **PATCH** — a fix or correction that requires no consumer code changes, or very minor ones.
 
+## [0.2.2] - 2026-08-26
+### Changed
+- Repository moved to the brooswit-factory org; package.json URLs updated (npm provenance verifies repository.url).
+
 ## [0.2.1] - 2026-08-24
 ### Changed
 - Internal: `watch`'s scheduler is now a simpler loop — wait the interval, wait the previous `fn`, then call `fn` again — replacing the concurrent-timer bookkeeping. Behavior is unchanged: same `max(interval, fn-duration)` cadence, no overlap, no dropped ticks, and `onChange` still fires as soon as `fn` resolves.
